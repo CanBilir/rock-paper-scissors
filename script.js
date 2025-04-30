@@ -1,35 +1,39 @@
 let humanScore = 0;
 let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let humanSelection = " ";
+let computerSelection = " ";
 
 function getComputerChoise() {
   let num1 = Math.random();
 
   if(num1 < 0.3) {
     console.log(num1);
-    return "Rock";
+    return computerSelection = "Rock";
 
   }
 
   else if(num1 > 0.3 && num1 < 0.6) {
     console.log(num1);
-    return "Paper";
+    return computerSelection = "Paper";
   } 
 
   else {
     console.log(num1);
-    return "Scissors";
+    return computerSelection = "Scissors";
   }
 }
 
 function getHumanChoise() {
-  return prompt("Type in your choise!")
+  humanSelection = prompt("Type in your choise!");
+  return humanSelection;
 }
 /*===========================================
             PLAY ROUND START
 ============================================= */
 function playRound(humanChoise, computerChoise) {
+  getComputerChoise();
+  getHumanChoise();
+
   //Player chooses paper.
   if(humanChoise.toLowerCase() === "paper" && computerChoise ===  "Rock") {
     ++humanScore;
