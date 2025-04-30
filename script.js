@@ -1,23 +1,81 @@
-  let choiseComputer = ""
+let humanScore = 0;
+let computerScore = 0;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 function getComputerChoise() {
+  let num1 = Math.random();
 
-  let choise = Math.random();
+  if(num1 < 0.3) {
+    console.log(num1);
+    return "Rock";
 
-  if (choise <= 0.3) {
-    choiseComputer = "Rock";
-    console.log(choise);
   }
 
-  else if (choise => 0.3 && choise <= 0.6) {
-    choiseComputer = "Paper";
-    console.log(choise);
-  }
+  else if(num1 > 0.3 && num1 < 0.6) {
+    console.log(num1);
+    return "Paper";
+  } 
 
   else {
-    choiseComputer = "Scissors";
-    console.log(choise);
+    console.log(num1);
+    return "Scissors";
+  }
+}
+
+function getHumanChoise() {
+  return prompt("Type in your choise!")
+}
+/*===========================================
+            PLAY ROUND START
+============================================= */
+function playRound(humanChoise, computerChoise) {
+  //Player chooses paper.
+  if(humanChoise.toLowerCase() === "paper" && computerChoise ===  "Rock") {
+    ++humanScore;
+    alert(`You chose Paper and computer chose Rock, you WIN!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+    
   }
 
-  return choiseComputer;
+  else if(humanChoise.toLowerCase() === "paper" && computerChoise ===  "Paper") {
+    alert(`It's a Tie!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+
+  else if(humanChoise.toLowerCase() === "paper" && computerChoise ===  "Scissors") {
+    ++computerScore;
+    alert(`You chose Paper and computer chose Scissors, you lose:(!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+  //Player chooses rock.
+  if(humanChoise.toLowerCase() === "rock" && computerChoise ===  "Rock") {
+    alert(`It's a Tie!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+    
+  }
+
+  else if(humanChoise.toLowerCase() === "rock" && computerChoise ===  "Paper") {
+    ++computerScore;
+    alert(`You chose Rock and computer chose Paper, you lose:(\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+
+  else if(humanChoise.toLowerCase() === "rock" && computerChoise ===  "Scissors") {
+    ++humanScore;
+    alert(`You chose Rock and computer chose Scissors, you WIN!:(!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+  //Player Chooses Scissors.
+  if(humanChoise.toLowerCase() === "scissors" && computerChoise ===  "Rock") {
+    ++computerScore;
+    alert(`You chose Scissors and computer chose Rock, you lose:(\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+    
+  }
+
+  else if(humanChoise.toLowerCase() === "scissors" && computerChoise ===  "Paper") {
+    ++humanScore;
+    alert(`You chose Scissors and computer chose Paper, you WIN!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+
+  else if(humanChoise.toLowerCase() === "scissors" && computerChoise ===  "Scissors") {
+    alert(`It's a tie!\nYour Score: ${humanScore} Computer Score: ${computerScore}`);
+  }
 }
+/*===============================================
+                  PLAY ROUND END
+=================================================*/
