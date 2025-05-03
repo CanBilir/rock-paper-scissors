@@ -48,3 +48,22 @@ function playRound(getHumanChoice, getComputerChoice) {
 
 }
 
+function playGame() {
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+  if(playerScore > computerScore) {
+    console.log(`You won the game by ${playerScore} - ${computerScore}!`);
+  }
+
+  else if(playerScore < computerScore) {
+    console.log(`You lost the game by ${playerScore} - ${computerScore}...`);
+  }
+
+  else if( playerScore === computerScore) {
+    console.log("Game is a tie.");
+  }
+}
+
